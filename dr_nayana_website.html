@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Nayana N | Assistant Professor | PES University</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243058;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf8f3;
+    --text: #2c2c2a;
+    --text-muted: #6b6a66;
+    --border: rgba(26,39,68,0.12);
+    --section-bg: #f5f3ee;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 80px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -100px; right: 5%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-role {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  .hero-desc {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: var(--gold-light); }
+  .hero-cta-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.75);
+    padding: 12px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hero-cta-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-photo-wrap {
+    position: relative;
+  }
+  .hero-photo-frame {
+    border: 2px solid rgba(201,168,76,0.4);
+    border-radius: 4px;
+    padding: 8px;
+  }
+  .hero-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, #243058, #1a2744);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-photo-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .gold-accent {
+    position: absolute; bottom: -10px; right: -10px;
+    width: 60px; height: 60px;
+    background: var(--gold);
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--navy);
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 48px; height: 2px;
+    background: var(--gold);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 0.97rem;
+  }
+  .contact-list { list-style: none; margin-top: 2rem; }
+  .contact-list li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .contact-list li strong { color: var(--navy); min-width: 80px; }
+  .contact-list a { color: var(--gold); text-decoration: none; }
+  .skills-grid {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 1.5rem;
+  }
+  .skill-tag {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-weight: 400;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  #experience { background: var(--section-bg); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 14px; top: 8px; bottom: 8px;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    display: flex; gap: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-dot {
+    flex-shrink: 0;
+    width: 29px; height: 29px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .timeline-dot-inner {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .timeline-content {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+  }
+  .timeline-org {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--navy);
+  }
+  .timeline-role {
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-period {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    background: var(--section-bg);
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .timeline-list {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-list li {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+  .timeline-list li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* PUBLICATIONS */
+  .pub-tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+  .pub-tab {
+    padding: 10px 24px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    background: none;
+    border-top: none; border-left: none; border-right: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .pub-tab.active {
+    color: var(--navy);
+    border-bottom-color: var(--gold);
+    font-weight: 500;
+  }
+  .pub-list { display: none; }
+  .pub-list.active { display: block; }
+  .pub-item {
+    display: flex; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .pub-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 2px;
+    font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .pub-title {
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .pub-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .pub-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    font-weight: 500;
+  }
+  .badge-ugc { background: #eaf3de; color: #3b6d11; }
+  .badge-scopus { background: #e6f1fb; color: #185fa5; }
+  .badge-intl { background: #faeeda; color: #854f0b; }
+
+  /* STATS */
+  #stats { background: var(--navy); }
+  #stats .section-title { color: #fff; }
+  #stats .section-title::after { background: var(--gold); }
+  #stats .section-label { color: var(--gold-light); }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .stat-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-card-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .edu-field { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo-wrap { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Dr. Nayana N</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#stats">Profile</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Ph.D · MBA · Assistant Professor</div>
+      <h1>Dr. <span>Nayana N</span></h1>
+      <p class="hero-role">Program Coordinator · DSU Online BBA &nbsp;|&nbsp; Former Faculty · PES University</p>
+      <p class="hero-desc">A dedicated academic with 10+ years of teaching experience in management and commerce, with a strong research profile in banking, finance, and digital economy. Presently serving as Program Coordinator for the Online BBA Program at Dayananda Sagar University, Bangalore.</p>
+      <div style="margin-bottom:2.5rem;">
+        <a href="#publications" class="hero-cta">View Research</a>
+        <a href="#contact" class="hero-cta-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num">25+</span>
+          <span class="hero-stat-label">Publications</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">24</span>
+          <span class="hero-stat-label">Conferences</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">10+</span>
+          <span class="hero-stat-label">Years Teaching</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">6</span>
+          <span class="hero-stat-label">UGC Care</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-placeholder">
+          <div class="hero-initials">NN</div>
+          <div class="hero-photo-label">Dr. Nayana N</div>
+        </div>
+      </div>
+      <div class="gold-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am an Assistant Professor at PES University, Bangalore, with over a decade of academic experience across several prestigious management institutions in Karnataka. Holding a Ph.D. and MBA, my academic journey has been driven by a passion for making management education impactful, practical, and research-oriented.</p>
+        <p>My research interests span e-banking, digital payments, financial performance analysis, microfinance, GST, and fintech — with a particular focus on how technology is reshaping the Indian banking and financial landscape.</p>
+        <p>Beyond teaching, I actively contribute to institutional development through roles as Placement Coordinator, Research Cell member, and Social Internship coordinator. I have served as Women's Wing President and conference convener, and have guided 30+ MBA students through their dissertations.</p>
+        <div class="skills-grid">
+          <span class="skill-tag">E-Banking</span>
+          <span class="skill-tag">Digital Finance</span>
+          <span class="skill-tag">Microfinance</span>
+          <span class="skill-tag">Financial Analysis</span>
+          <span class="skill-tag">GST & Taxation</span>
+          <span class="skill-tag">FinTech</span>
+          <span class="skill-tag">Research Methodology</span>
+          <span class="skill-tag">Capital Markets</span>
+          <span class="skill-tag">MBA Mentoring</span>
+        </div>
+      </div>
+      <div>
+        <ul class="contact-list" id="contact">
+          <li><strong>Email</strong> <a href="mailto:drnayanan05@gmail.com">drnayanan05@gmail.com</a></li>
+          <li><strong>Phone</strong> +91-8553039089</li>
+          <li><strong>Location</strong> Bangalore, Karnataka</li>
+          <li><strong>Current</strong> DSU Online BBA Program Coordinator (Dec 2025 – present)</li>
+          <li><strong>Languages</strong> Kannada, English</li>
+          <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/dr-nayana-n-50506940/" target="_blank">View Profile ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career Journey</div>
+    <h2 class="section-title">Academic Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Dayananda Sagar University (DSU) — Online BBA Program</div>
+          <div class="timeline-role">Program Coordinator</div>
+          <div class="timeline-period">Dec 2025 – Present</div>
+          <ul class="timeline-list">
+            <li>Program coordination for DSU Online BBA</li>
+            <li>Overseeing curriculum delivery and student engagement for online learners</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">PES University, Bangalore</div>
+          <div class="timeline-role">Assistant Professor</div>
+          <div class="timeline-period">Jan 2022 – Nov 2025</div>
+          <ul class="timeline-list">
+            <li>Teaching, Placement Coordinator, Research Cell member</li>
+            <li>Conducted certification programs: Tally, BFSI, Excel</li>
+            <li>In charge of Social Internship Project</li>
+            <li>Coordinating with Exam Cell</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Visiting Faculty (COVID Period)</div>
+          <div class="timeline-role">Visiting / Adjunct</div>
+          <div class="timeline-period">May 2020 – Dec 2021</div>
+          <ul class="timeline-list">
+            <li>PES University (Sept–Dec 2021)</li>
+            <li>GIBS, Bannergatta (Feb–Aug 2021)</li>
+            <li>AMC Bannergatta (May 2020–Aug 2021)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Acharya Bangalore B School</div>
+          <div class="timeline-role">Assistant Professor</div>
+          <div class="timeline-period">Aug 2017 – Nov 2019</div>
+          <ul class="timeline-list">
+            <li>Women's Wing President</li>
+            <li>Conducted academic conference as Convener</li>
+            <li>Talent identification and co-curricular coordination</li>
+            <li>Exam coordination and project mentoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Alliance University – Alliance School of Business</div>
+          <div class="timeline-role">Assistant Professor</div>
+          <div class="timeline-period">Nov 2016 – Feb 2017</div>
+          <ul class="timeline-list">
+            <li>Syllabus development and student monitoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">GSSIETW, KRS Road, Mysore</div>
+          <div class="timeline-role">Assistant Professor – Adjunct Faculty</div>
+          <div class="timeline-period">Feb 2016 – Nov 2016</div>
+          <ul class="timeline-list">
+            <li>MBA project coordination and alumni association</li>
+            <li>Editorial department in Symposium</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Bhavan's Priyamvada Birla Institute of Management</div>
+          <div class="timeline-role">Assistant Professor – Adjunct Faculty</div>
+          <div class="timeline-period">Jan 2016 – Jun 2016</div>
+          <ul class="timeline-list">
+            <li>Interactive classroom delivery with current affairs integration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Bangalore Institute of Management Studies</div>
+          <div class="timeline-role">Assistant Professor</div>
+          <div class="timeline-period">Mar 2013 – Sep 2014</div>
+          <ul class="timeline-list">
+            <li>Guided 30 MBA students in dissertation</li>
+            <li>Headed Cultural Committee and Management Club</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">GSSSIETW MBA</div>
+          <div class="timeline-role">Assistant Professor</div>
+          <div class="timeline-period">Feb 2012 – Feb 2013</div>
+          <ul class="timeline-list">
+            <li>Coordinator for tests; Conducting Kaushalam Fest</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-org">Zilla Panchayat</div>
+          <div class="timeline-role">Consultant</div>
+          <div class="timeline-period">Sep 2011 – Feb 2012</div>
+          <ul class="timeline-list">
+            <li>Data collection and income calculation for government departments</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label">Academic Research</div>
+    <h2 class="section-title">Publications & Presentations</h2>
+
+    <div class="pub-tabs">
+      <button class="pub-tab active" onclick="showTab('intl')">International Publications</button>
+      <button class="pub-tab" onclick="showTab('natl')">National Publications</button>
+      <button class="pub-tab" onclick="showTab('ugc')">UGC Care & Scopus</button>
+      <button class="pub-tab" onclick="showTab('conf')">Conferences</button>
+    </div>
+
+    <div id="tab-intl" class="pub-list active">
+      <div class="pub-item"><div class="pub-num">1</div><div><div class="pub-title">Emerging Trends in Commodity Derivative</div><div class="pub-meta">ICMEE, Pune · ISSN: 2249-7463 · Vol II, Issue 4(1) · 2012</div></div></div>
+      <div class="pub-item"><div class="pub-num">2</div><div><div class="pub-title">Derivative Trading in Futures and Options Contracts at Motilal Oswal Financial Services</div><div class="pub-meta">Shodhaditya Research Journal, AIMSR · ISSN: 2347-8403 · Vol 3, Issue 2 · 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">3</div><div><div class="pub-title">Credit Appraisal Method and Credit Monitoring Practices at Navanagar Urban Co-operative Bank</div><div class="pub-meta">Shodhaditya Research Journal · ISSN: 2347-8403 · Vol 3, Issue 1 · 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">4</div><div><div class="pub-title">Performance Analysis of Regional Rural Banks: Reference to Kaveri Grameena Bank</div><div class="pub-meta">2nd International Conference — Inclusive Economic Growth · ISBN: 978-93-83302-18-5 · Nov 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">5</div><div><div class="pub-title">Poverty Eradication through Microfinance: Karnataka Vikas Grameena Banks</div><div class="pub-meta">Intl. Journal of Business & Administration Research Review · ISSN: 2348-0653 · Oct–Dec 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">6</div><div><div class="pub-title">Trends in E-Banking: A Study on Indian Banking Scenario</div><div class="pub-meta">Global Journal for Research Analysis · ISSN: 2277-8160 · Vol 5, Issue 12 · Dec 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">7</div><div><div class="pub-title">Customer Perception towards Green Banking – SBI Bangalore and Mysore</div><div class="pub-meta">Journal of Exclusive Management Science · ISSN: 2277-5684 · Vol 6, Issue 2 · Feb 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">8</div><div><div class="pub-title">E-Banking Channel in Indian Banking Industry – SBI and ICICI Banks</div><div class="pub-meta">Elixir Financial Management · ISSN: 2229-712X · March 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">9</div><div><div class="pub-title">Indian Banking Profitability in E-Banking</div><div class="pub-meta">Samyoga Journal Special Issue · ISSN: 2231-3362 · June 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">10</div><div><div class="pub-title">Trends in Volatility of Stock Market</div><div class="pub-meta">Asia Pacific Journal of Research · ISSN: 2320-5504 · UGC Approved sl. 45797 · Nov 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">11</div><div><div class="pub-title">Empirical Study on CIBIL Awareness by Customers of SBI and ICICI Bank</div><div class="pub-meta">IASMS Journal of Business Spectrum · ISSN: 0974-8016 · Vol XI, No. 1 · Feb 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">12</div><div><div class="pub-title">Digital Wallet and Consumer Adoption in Bangalore City</div><div class="pub-meta">Shanlax International Journals of Commerce · ISSN: 2320-4168 · Impact Factor 4.118 · April 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">13</div><div><div class="pub-title">Financial Performance of SBI</div><div class="pub-meta">Intl. Journal of Current Research · ISSN: 0975-833X · Impact Factor 7.617 · May 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">14</div><div><div class="pub-title">Case Study on Employee Perception towards E-Banking</div><div class="pub-meta">Intl. Journal of Engineering Development & Research · ISSN: 2321-9939 · Impact Factor 5.67 · April 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">15</div><div><div class="pub-title">M-Payment and its Influence in Youth</div><div class="pub-meta">Intl. Journal of Advance & Innovative Research · ISSN: 2394-7780 · Impact Factor 3.25 · Oct–Dec 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">16</div><div><div class="pub-title">Trust in E-Payment: An Empirical Study with Reference to Youth</div><div class="pub-meta">Journal of Exclusive Management Science · ISSN: 2277-5684 · March 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">17</div><div><div class="pub-title">Empirical Study on E-Banking in Rural Area</div><div class="pub-meta">IASMS Journal of Business Spectrum · ISSN: 0974-8016 · Vol XII, No. 1 · April 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">18</div><div><div class="pub-title">Financial Performance Analysis – Pre & Post Merger and Acquisition in India <span class="pub-badge badge-scopus">Scopus</span></div></div><div class="pub-meta">Journal of Propulsion Technology · ISSN: 1001-4055 · Vol 44, No. 5 · 2023</div></div>
+    </div>
+
+    <div id="tab-natl" class="pub-list">
+      <div class="pub-item"><div class="pub-num">1</div><div><div class="pub-title">Emerging Trends in Derivative Market</div><div class="pub-meta">Acharya Institute of Graduate Studies · ISBN: 978-81-910530-3-6 · 2012</div></div></div>
+      <div class="pub-item"><div class="pub-num">2</div><div><div class="pub-title">Customer Satisfaction in E-banking Services – ICICI and Canara Bank, Mysore</div><div class="pub-meta">ISBN: 978-93-85327-26-1 · Feb 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">3</div><div><div class="pub-title">Indian Banking Contribution towards CSR</div><div class="pub-meta">ISBN: 978-81-923332-2-10 · April 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">4</div><div><div class="pub-title">Financial Ecosystem and its Effect in State Bank of India</div><div class="pub-meta">7th Intl. Conference on Ecosystem for Growth of Business · ISBN: 978-81-909372-4-5 · Sep 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">5</div><div><div class="pub-title">Role and Responsibility of Auditor in Fraud Detection in Bengaluru City</div><div class="pub-meta">E-ISBN: 9789392229145 / P-ISBN: 9789392229114 · April 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">6</div><div><div class="pub-title">Impact of COVID-19 on Revenue Collection – Tax Revenue in India</div><div class="pub-meta">National Conference 2023 · ISBN: 978-81-958790-3-8 · July 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">7</div><div><div class="pub-title">Investigation of FinTech in NGOs – Bangalore City</div><div class="pub-meta">ISBN: 978-81-963009-2-0 · July 2023</div></div></div>
+    </div>
+
+    <div id="tab-ugc" class="pub-list">
+      <div class="pub-item"><div class="pub-num">1</div><div><div class="pub-title">Choosing E-wallets is Compatible? <span class="pub-badge badge-ugc">UGC Care Group-A</span></div><div class="pub-meta">Adalya Journal · ISSN: 1301-2746 · Vol 8, Issue 10 · Oct 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">2</div><div><div class="pub-title">Online Shopping with reference to Flipkart and Snapdeal <span class="pub-badge badge-ugc">UGC Care Group-A</span></div><div class="pub-meta">Adalya Journal · ISSN: 1301-2746 · Vol 8, Issue 11 · Nov 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">3</div><div><div class="pub-title">Trust in E-Payment: Empirical Study with Reference to Youth <span class="pub-badge badge-ugc">UGC Care Group-II</span></div><div class="pub-meta">Journal of Interdisciplinary Cycle Research · ISSN: 0022-1945 · Vol 12, Issue 10 · Oct 2020</div></div></div>
+      <div class="pub-item"><div class="pub-num">4</div><div><div class="pub-title">Impact of E-Banking Service Quality on Customer Satisfaction – Bangalore & Mysore <span class="pub-badge badge-ugc">UGC Care Group-I</span></div><div class="pub-meta">Alochana Chakra · ISSN: 2231-3990 · Vol 9, Issue 10 · Oct 2020</div></div></div>
+      <div class="pub-item"><div class="pub-num">5</div><div><div class="pub-title">Role and Responsibility of Auditor in Fraud Detection in Bengaluru City <span class="pub-badge badge-ugc">UGC Care</span></div><div class="pub-meta">Indian Journal of Natural Sciences · ISSN: 0976-0997 · Vol 14, Issue 79 · Aug 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">6</div><div><div class="pub-title">Recognition and Effect of GST among Small Enterprises: Bengaluru City <span class="pub-badge badge-ugc">UGC Care Group-I</span></div><div class="pub-meta">Humanities & Social Science Studies Journal · ISSN: 2319-829X · IF=7.28 · Jul–Dec 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">7</div><div><div class="pub-title">Financial Performance Analysis – Pre & Post Merger and Acquisition in India <span class="pub-badge badge-scopus">Scopus</span></div><div class="pub-meta">Journal of Propulsion Technology · ISSN: 1001-4055 · Vol 44, No. 5 · 2023</div></div></div>
+    </div>
+
+    <div id="tab-conf" class="pub-list">
+      <div class="pub-item"><div class="pub-num">1</div><div><div class="pub-title">Performance Analysis of Regional Rural Banks – Kaveri Grameena Bank of Karnataka</div><div class="pub-meta">2nd Intl. Conference on Inclusive Economic Growth · Nov 2016</div></div></div>
+      <div class="pub-item"><div class="pub-num">2</div><div><div class="pub-title">Customer Satisfaction in E-banking – ICICI and Canara Bank, Mysore</div><div class="pub-meta">Jain University, Bangalore · Feb 25, 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">3</div><div><div class="pub-title">Indian Banking Contribution towards Corporate Social Responsibility</div><div class="pub-meta">Don Bosco Group of Institutions, Bangalore · April 26–27, 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">4</div><div><div class="pub-title">Indian Banking Profitability in E-Banking</div><div class="pub-meta">T John College, Bangalore · June 16, 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">5</div><div><div class="pub-title">Financial Ecosystem and its Effect in State Bank of India</div><div class="pub-meta">Acharya Bangalore B School · Sep 8–9, 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">6</div><div><div class="pub-title">Factors Affecting Dividend Payout Ratio – BSE Listed Companies</div><div class="pub-meta">Seshadripuram First Grade College, Bangalore · Oct 7, 2017</div></div></div>
+      <div class="pub-item"><div class="pub-num">7</div><div><div class="pub-title">Trends in Resource Mobilization by Mutual Funds</div><div class="pub-meta">Sri Ganesh School of Business Management, Tamil Nadu · Feb 9, 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">8</div><div><div class="pub-title">Case Study on Employee Perception towards E-Banking</div><div class="pub-meta">Jain University, Bangalore · Feb 27, 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">9</div><div><div class="pub-title">Customer Awareness on CIBIL – SBI & ICICI Bank</div><div class="pub-meta">Acharya Bangalore B School · June 7–8, 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">10</div><div><div class="pub-title">M-Payment and its Influence in Youth</div><div class="pub-meta">Krupanidi School of Management, Bangalore · Oct 12–13, 2018</div></div></div>
+      <div class="pub-item"><div class="pub-num">11</div><div><div class="pub-title">Quality of Performance & its Impact on Organisation Excellence in SSI Units</div><div class="pub-meta">Mangalore University · Feb 22–23, 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">12</div><div><div class="pub-title">Choosing E-wallets is Compatible?</div><div class="pub-meta">ABBS, Bangalore · Oct 2019</div></div></div>
+      <div class="pub-item"><div class="pub-num">13</div><div><div class="pub-title">Role and Responsibility of Auditor in Fraud Detection – Bengaluru City</div><div class="pub-meta">Nagarjuna Degree College, Bangalore · July 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">14</div><div><div class="pub-title">Investigation of FinTech in NGOs – Bangalore City</div><div class="pub-meta">Krupanidhi College of Management, Bangalore · July 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">15</div><div><div class="pub-title">Recognition and Effect of GST among Small Enterprises – Bengaluru City</div><div class="pub-meta">Sri Kanyaka Parameswari Arts & Science College, Bangalore · Aug 30, 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">16</div><div><div class="pub-title">Customer Perception on Price, Food Quality, Service Quality of Restaurants – Bangalore</div><div class="pub-meta">IFAC 2023, IIM Jammu · Sep 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">17</div><div><div class="pub-title">Body Mass Index and Cost Analysis of Food Consumption</div><div class="pub-meta">Christ University, Bangalore · Nov 2023</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="section-inner">
+    <div class="section-label">Research Profile</div>
+    <h2 class="section-title">Academic Highlights</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-card-num">18</span>
+        <div class="stat-card-label">International Publications</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">7</span>
+        <div class="stat-card-label">National Publications</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">6</span>
+        <div class="stat-card-label">UGC Care Journals</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">1</span>
+        <div class="stat-card-label">Scopus Publication</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">17</span>
+        <div class="stat-card-label">Intl. Conference Papers</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">7</span>
+        <div class="stat-card-label">National Conference Papers</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">10+</span>
+        <div class="stat-card-label">Years of Teaching</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">30+</span>
+        <div class="stat-card-label">MBA Dissertations Guided</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education & Credentials</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Ph.D</div>
+        <div class="edu-field">Doctoral Research in Management / Commerce</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">MBA</div>
+        <div class="edu-field">Master of Business Administration</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Journal Reviewer</div>
+        <div class="edu-field">IJRAR · IJCRT · BP Publishers · ERDA (Life Member) · Indian Academy of Research Association (Life Member)</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">FDP / MDP Programs</div>
+        <div class="edu-field">Teach Smart and Not Hard · NLP in Education · Finance for Non-Finance Executives · Innovative Teaching Methods (KGR, Osmania University, 2024)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-family:'Playfair Display',serif; font-size:1.1rem; color:rgba(255,255,255,0.7); margin-bottom:0.5rem;">Dr. Nayana N</p>
+  <p>Assistant Professor · PES University, Bangalore</p>
+  <p style="margin-top:0.5rem;"><a href="mailto:drnayanan05@gmail.com">drnayanan05@gmail.com</a> &nbsp;|&nbsp; +91-8553039089 &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/dr-nayana-n-50506940/" target="_blank">LinkedIn ↗</a></p>
+  <p style="margin-top:1.5rem; font-size:0.75rem; color:rgba(255,255,255,0.2);">© 2024 Dr. Nayana N. All rights reserved.</p>
+</footer>
+
+<script>
+function showTab(tab) {
+  document.querySelectorAll('.pub-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.pub-list').forEach(function(l){ l.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+</script>
+</body>
+</html>
