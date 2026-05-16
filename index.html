@@ -7,427 +7,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --navy: #1a2744;
-    --navy-light: #243058;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #faf8f3;
-    --text: #2c2c2a;
-    --text-muted: #6b6a66;
-    --border: rgba(26,39,68,0.12);
-    --section-bg: #f5f3ee;
+    --navy: #1a2744; --navy-light: #243058; --gold: #c9a84c; --gold-light: #e8c97a;
+    --cream: #faf8f3; --text: #2c2c2a; --text-muted: #6b6a66;
+    --border: rgba(26,39,68,0.12); --section-bg: #f5f3ee;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--cream);
-    line-height: 1.7;
-  }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); line-height: 1.7; }
 
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--navy);
-    padding: 0 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
+    background: var(--navy); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: 1.1rem;
-    letter-spacing: 0.02em;
-  }
+  .nav-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; letter-spacing: 0.02em; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
 
   .hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex; align-items: center;
-    padding: 80px 5% 60px;
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; background: var(--navy);
+    display: flex; align-items: center; padding: 80px 5% 60px;
+    position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -60px; right: -60px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.15);
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -100px; right: 5%;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.08);
-  }
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative; z-index: 1;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(201,168,76,0.15);
-    color: var(--gold);
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(201,168,76,0.3);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.15); }
+  .hero::after  { content: ''; position: absolute; bottom: -100px; right: 5%; width: 300px; height: 300px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.08); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center; max-width: 1100px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-tag { display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; margin-bottom: 1.5rem; border: 1px solid rgba(201,168,76,0.3); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
   .hero h1 span { color: var(--gold); }
-  .hero-role {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-  }
-  .hero-desc {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.95rem;
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-  }
-  .hero-stats {
-    display: flex; gap: 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 2rem;
-  }
-  .hero-stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: var(--gold);
-    display: block;
-  }
-  .hero-stat-label {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 12px 24px;
-    border-radius: 2px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin-right: 1rem;
-    transition: background 0.2s;
-  }
+  .hero-role { font-size: 1.05rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; font-weight: 300; }
+  .hero-desc { color: rgba(255,255,255,0.55); font-size: 0.95rem; max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8; }
+  .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); display: block; }
+  .hero-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); padding: 12px 24px; border-radius: 2px; text-decoration: none; font-weight: 500; font-size: 0.9rem; margin-right: 1rem; transition: background 0.2s; }
   .hero-cta:hover { background: var(--gold-light); }
-  .hero-cta-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.75);
-    padding: 12px 24px;
-    border-radius: 2px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .hero-cta-outline { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); padding: 12px 24px; border-radius: 2px; text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s, color 0.2s; }
   .hero-cta-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── Photo frame ── */
   .hero-photo-wrap { position: relative; }
-  .hero-photo-frame {
-    border: 2px solid rgba(201,168,76,0.4);
-    border-radius: 4px;
-    padding: 8px;
-  }
-  .hero-photo-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(145deg, #243058, #1a2744);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .hero-photo-placeholder img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-  }
-  .gold-accent {
-    position: absolute; bottom: -10px; right: -10px;
-    width: 60px; height: 60px;
-    background: var(--gold);
-    border-radius: 2px;
-    z-index: -1;
-  }
+  .hero-photo-frame { border: 2px solid rgba(201,168,76,0.4); border-radius: 4px; padding: 8px; }
+  .hero-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(145deg, #243058, #1a2744); border-radius: 2px; overflow: hidden; position: relative; }
+  /* Fallback shown when no photo */
+  .photo-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; z-index: 1; }
+  .photo-initials { width: 100px; height: 100px; border-radius: 50%; border: 2px solid rgba(201,168,76,0.5); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); background: rgba(201,168,76,0.08); letter-spacing: 0.05em; }
+  .photo-name-fallback { font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.6); font-size: 1rem; letter-spacing: 0.06em; text-align: center; }
+  .photo-role-fallback { font-size: 0.75rem; color: rgba(201,168,76,0.7); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 0 1rem; line-height: 1.6; }
+  /* Real photo sits above fallback */
+  .hero-photo-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center top; position: absolute; inset: 0; z-index: 2; display: block; }
+  .gold-accent { position: absolute; bottom: -10px; right: -10px; width: 60px; height: 60px; background: var(--gold); border-radius: 2px; z-index: -1; }
 
   section { padding: 80px 5%; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--navy);
-    margin-bottom: 3rem;
-    position: relative;
-    padding-bottom: 1rem;
-  }
-  .section-title::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0;
-    width: 48px; height: 2px;
-    background: var(--gold);
-  }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); margin-bottom: 3rem; position: relative; padding-bottom: 1rem; }
+  .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 48px; height: 2px; background: var(--gold); }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .about-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.2rem;
-    font-size: 0.97rem;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.97rem; }
   .contact-list { list-style: none; margin-top: 2rem; }
-  .contact-list li {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
+  .contact-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
   .contact-list li strong { color: var(--navy); min-width: 80px; }
   .contact-list a { color: var(--gold); text-decoration: none; }
-  .skills-grid {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    margin-top: 1.5rem;
-  }
-  .skill-tag {
-    background: var(--section-bg);
-    border: 1px solid var(--border);
-    color: var(--navy);
-    font-size: 0.82rem;
-    padding: 6px 14px;
-    border-radius: 2px;
-    font-weight: 400;
-  }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+  .skill-tag { background: var(--section-bg); border: 1px solid var(--border); color: var(--navy); font-size: 0.82rem; padding: 6px 14px; border-radius: 2px; }
 
   #experience { background: var(--section-bg); }
   .timeline { position: relative; }
-  .timeline::before {
-    content: '';
-    position: absolute; left: 14px; top: 8px; bottom: 8px;
-    width: 1px; background: var(--border);
-  }
-  .timeline-item {
-    display: flex; gap: 2rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-  }
-  .timeline-dot {
-    flex-shrink: 0;
-    width: 29px; height: 29px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    background: var(--cream);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; z-index: 1;
-  }
-  .timeline-dot-inner {
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-  .timeline-content {
-    flex: 1;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.25rem 1.5rem;
-  }
-  .timeline-org {
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--navy);
-  }
-  .timeline-role {
-    font-size: 0.85rem;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  .timeline-period {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    background: var(--section-bg);
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 2px;
-    margin-bottom: 0.8rem;
-  }
-  .timeline-list {
-    list-style: none;
-    padding: 0;
-  }
-  .timeline-list li {
-    font-size: 0.87rem;
-    color: var(--text-muted);
-    padding: 3px 0 3px 14px;
-    position: relative;
-  }
-  .timeline-list li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--gold);
-    font-size: 0.75rem;
-  }
+  .timeline::before { content: ''; position: absolute; left: 14px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+  .timeline-item { display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
+  .timeline-dot { flex-shrink: 0; width: 29px; height: 29px; border-radius: 50%; border: 2px solid var(--gold); background: var(--cream); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+  .timeline-dot-inner { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+  .timeline-content { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem; }
+  .timeline-org { font-weight: 500; font-size: 1rem; color: var(--navy); }
+  .timeline-role { font-size: 0.85rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .timeline-period { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.05em; background: var(--section-bg); display: inline-block; padding: 2px 10px; border-radius: 2px; margin-bottom: 0.8rem; }
+  .timeline-list { list-style: none; padding: 0; }
+  .timeline-list li { font-size: 0.87rem; color: var(--text-muted); padding: 3px 0 3px 14px; position: relative; }
+  .timeline-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
 
-  .pub-tabs {
-    display: flex; gap: 0;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2.5rem;
-  }
-  .pub-tab {
-    padding: 10px 24px;
-    font-size: 0.88rem;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    color: var(--text-muted);
-    transition: all 0.2s;
-    background: none;
-    border-top: none; border-left: none; border-right: none;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .pub-tab.active {
-    color: var(--navy);
-    border-bottom-color: var(--gold);
-    font-weight: 500;
-  }
+  .pub-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .pub-tab { padding: 10px 24px; font-size: 0.88rem; cursor: pointer; border-bottom: 2px solid transparent; color: var(--text-muted); transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none; font-family: 'DM Sans', sans-serif; }
+  .pub-tab.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 500; }
   .pub-list { display: none; }
   .pub-list.active { display: block; }
-  .pub-item {
-    display: flex; gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  .pub-num {
-    flex-shrink: 0;
-    width: 28px; height: 28px;
-    background: var(--navy);
-    color: var(--gold);
-    border-radius: 2px;
-    font-size: 0.75rem;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 500;
-    margin-top: 2px;
-  }
-  .pub-title {
-    font-size: 0.9rem;
-    color: var(--navy);
-    font-weight: 500;
-    margin-bottom: 3px;
-  }
-  .pub-meta {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-  .pub-badge {
-    display: inline-block;
-    font-size: 0.68rem;
-    padding: 2px 8px;
-    border-radius: 2px;
-    margin-left: 8px;
-    font-weight: 500;
-  }
+  .pub-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .pub-num { flex-shrink: 0; width: 28px; height: 28px; background: var(--navy); color: var(--gold); border-radius: 2px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; font-weight: 500; margin-top: 2px; }
+  .pub-title { font-size: 0.9rem; color: var(--navy); font-weight: 500; margin-bottom: 3px; }
+  .pub-meta { font-size: 0.8rem; color: var(--text-muted); }
+  .pub-badge { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 2px; margin-left: 8px; font-weight: 500; }
   .badge-ugc { background: #eaf3de; color: #3b6d11; }
   .badge-scopus { background: #e6f1fb; color: #185fa5; }
-  .badge-intl { background: #faeeda; color: #854f0b; }
 
   #stats { background: var(--navy); }
   #stats .section-title { color: #fff; }
   #stats .section-title::after { background: var(--gold); }
   #stats .section-label { color: var(--gold-light); }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-  .stat-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 2rem;
-    text-align: center;
-  }
-  .stat-card-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--gold);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .stat-card-label {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2rem; text-align: center; }
+  .stat-card-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); display: block; line-height: 1; margin-bottom: 0.5rem; }
+  .stat-card-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
 
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .edu-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.5rem;
-    border-left: 3px solid var(--gold);
-  }
-  .edu-degree {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
+  .edu-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; border-left: 3px solid var(--gold); }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.25rem; }
   .edu-field { font-size: 0.88rem; color: var(--text-muted); }
 
-  footer {
-    background: var(--navy);
-    padding: 3rem 5%;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
+  footer { background: var(--navy); padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
   footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
   footer a { color: var(--gold); text-decoration: none; }
 
@@ -467,44 +155,36 @@
         <a href="#contact" class="hero-cta-outline">Get in Touch</a>
       </div>
       <div class="hero-stats">
-        <div>
-          <span class="hero-stat-num">25+</span>
-          <span class="hero-stat-label">Publications</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">24</span>
-          <span class="hero-stat-label">Conferences</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">10+</span>
-          <span class="hero-stat-label">Years Teaching</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">6</span>
-          <span class="hero-stat-label">UGC Care</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">3</span>
-          <span class="hero-stat-label">Scopus / Indexed</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">1</span>
-          <span class="hero-stat-label">UK Patent</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">3</span>
-          <span class="hero-stat-label">PhD Scholars</span>
-        </div>
-        <div>
-          <span class="hero-stat-num">1</span>
-          <span class="hero-stat-label">Book Authored</span>
-        </div>
+        <div><span class="hero-stat-num">25+</span><span class="hero-stat-label">Publications</span></div>
+        <div><span class="hero-stat-num">24</span><span class="hero-stat-label">Conferences</span></div>
+        <div><span class="hero-stat-num">10+</span><span class="hero-stat-label">Years Teaching</span></div>
+        <div><span class="hero-stat-num">6</span><span class="hero-stat-label">UGC Care</span></div>
+        <div><span class="hero-stat-num">3</span><span class="hero-stat-label">Scopus / Indexed</span></div>
+        <div><span class="hero-stat-num">1</span><span class="hero-stat-label">UK Patent</span></div>
+        <div><span class="hero-stat-num">3</span><span class="hero-stat-label">PhD Scholars</span></div>
+        <div><span class="hero-stat-num">1</span><span class="hero-stat-label">Book Authored</span></div>
       </div>
     </div>
+
+    <!-- ── PHOTO ─────────────────────────────────────────────────────────
+         Upload photo.jpg to the root of your GitHub repo.
+         Until then the "NN" initials placeholder shows automatically.
+    ─────────────────────────────────────────────────────────────────── -->
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
         <div class="hero-photo-placeholder">
-          <img src="https://drnayanan.github.io/photo.jpg" alt="Dr. Nayana N" onerror="this.style.display='none'" />
+          <!-- Initials fallback (always in background) -->
+          <div class="photo-fallback">
+            <div class="photo-initials">NN</div>
+            <div class="photo-name-fallback">Dr. Nayana N</div>
+            <div class="photo-role-fallback">Associate Professor<br>Dayananda Sagar University</div>
+          </div>
+          <!-- Real photo covers fallback when it loads successfully -->
+          <img
+            src="https://drnayanan.github.io/photo.jpg"
+            alt="Dr. Nayana N"
+            onerror="this.style.display='none'"
+          />
         </div>
       </div>
       <div class="gold-accent"></div>
@@ -527,7 +207,7 @@
           <span class="skill-tag">Digital Finance</span>
           <span class="skill-tag">Microfinance</span>
           <span class="skill-tag">Financial Analysis</span>
-          <span class="skill-tag">GST & Taxation</span>
+          <span class="skill-tag">GST &amp; Taxation</span>
           <span class="skill-tag">FinTech</span>
           <span class="skill-tag">Research Methodology</span>
           <span class="skill-tag">Capital Markets</span>
@@ -555,7 +235,6 @@
     <h2 class="section-title">Academic Experience</h2>
     <div class="timeline">
 
-      <!-- ✅ UPDATED DSU BLOCK -->
       <div class="timeline-item">
         <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
         <div class="timeline-content">
@@ -705,7 +384,6 @@
   <div class="section-inner">
     <div class="section-label">Academic Research</div>
     <h2 class="section-title">Publications &amp; Presentations</h2>
-
     <div class="pub-tabs">
       <button class="pub-tab active" onclick="showTab('intl', this)">International Publications</button>
       <button class="pub-tab" onclick="showTab('natl', this)">National Publications</button>
@@ -753,9 +431,9 @@
       <div class="pub-item"><div class="pub-num">6</div><div><div class="pub-title">Recognition and Effect of GST among Small Enterprises: Bengaluru City <span class="pub-badge badge-ugc">UGC Care Group-I</span></div><div class="pub-meta">Humanities &amp; Social Science Studies Journal · ISSN: 2319-829X · IF=7.28 · Jul–Dec 2023</div></div></div>
       <div class="pub-item"><div class="pub-num">📗</div><div><div class="pub-title">Fundamentals of HR Analytics <span class="pub-badge" style="background:#e8f5e9;color:#2D6B30">Book</span></div><div class="pub-meta">Iterative International Publisher (IIP) · ISBN: 978-1-956102-84-0 · Bowker Agency, USA</div></div></div>
       <div class="pub-item"><div class="pub-num">🇬🇧</div><div><div class="pub-title">Computing Device for Financial Transaction Authentication <span class="pub-badge" style="background:#e8f5e9;color:#2D6B30">UK Patent</span></div><div class="pub-meta">UK Intellectual Property Office · Registered Design No: 6377745 · Filed: 11 July 2024</div></div></div>
-      <div class="pub-item"><div class="pub-num">1</div><div><div class="pub-title">Financial Performance Analysis – Pre &amp; Post Merger and Acquisition in India <span class="pub-badge badge-scopus">Scopus</span></div><div class="pub-meta">Journal of Propulsion Technology · ISSN: 1001-4055 · Vol 44, No. 5 · 2023</div></div></div>
-      <div class="pub-item"><div class="pub-num">2</div><div><div class="pub-title">FinTech Integration and Banking Performance: A Comparative Study of Indian Public and Private Sector Banks <span class="pub-badge badge-scopus">Springer Nature</span></div><div class="pub-meta">Technological Innovation and Enhancing Decision Processes in Modern Enterprises · pp 639–647 · DOI: 10.1007/978-3-032-04378-8_57 · April 2026</div></div></div>
-      <div class="pub-item"><div class="pub-num">3</div><div><div class="pub-title">Leveraging Technology for Digital Green Financing and Renewable Energy: Public Opinion and Emerging Trends in India <span class="pub-badge badge-scopus">Edward Elgar</span></div><div class="pub-meta">Handbook on Artificial Intelligence and the Circular Economy · Chapter 21 · pp 342–363 · Edward Elgar Publishing, UK · DOI: 10.4337/9781035343386.00031 · 17 Mar 2026</div></div></div>
+      <div class="pub-item"><div class="pub-num">S1</div><div><div class="pub-title">Financial Performance Analysis – Pre &amp; Post Merger and Acquisition in India <span class="pub-badge badge-scopus">Scopus</span></div><div class="pub-meta">Journal of Propulsion Technology · ISSN: 1001-4055 · Vol 44, No. 5 · 2023</div></div></div>
+      <div class="pub-item"><div class="pub-num">S2</div><div><div class="pub-title">FinTech Integration and Banking Performance: A Comparative Study of Indian Public and Private Sector Banks <span class="pub-badge badge-scopus">Springer Nature</span></div><div class="pub-meta">Technological Innovation and Enhancing Decision Processes in Modern Enterprises · pp 639–647 · DOI: 10.1007/978-3-032-04378-8_57 · April 2026</div></div></div>
+      <div class="pub-item"><div class="pub-num">S3</div><div><div class="pub-title">Leveraging Technology for Digital Green Financing and Renewable Energy: Public Opinion and Emerging Trends in India <span class="pub-badge badge-scopus">Edward Elgar</span></div><div class="pub-meta">Handbook on Artificial Intelligence and the Circular Economy · Chapter 21 · pp 342–363 · Edward Elgar Publishing, UK · DOI: 10.4337/9781035343386.00031 · 17 Mar 2026</div></div></div>
     </div>
 
     <div id="tab-conf" class="pub-list">
@@ -809,46 +487,16 @@
     <div class="section-label">Academic Background</div>
     <h2 class="section-title">Education &amp; Credentials</h2>
     <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-degree">Ph.D</div>
-        <div class="edu-field">Doctoral Research in Management / Commerce</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">MBA</div>
-        <div class="edu-field">Master of Business Administration</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">🏛️ UGC–IIT Patna FDP — Grade A+</div>
-        <div class="edu-field">AI Driven MOOC Content Creation, E-Content Development &amp; Research Methodology · Malaviya Mission Teacher Training Programme (MM-TTP) · 04–09 May 2026</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">📗 Book Publication</div>
-        <div class="edu-field">Fundamentals of HR Analytics · ISBN: 978-1-956102-84-0 · Iterative International Publisher (IIP) · Bowker Agency, USA</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">🇬🇧 UK Registered Design Patent</div>
-        <div class="edu-field">Computing Device for Financial Transaction Authentication · Design No: 6377745 · UK Intellectual Property Office · Filed: 11 July 2024</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">📚 Advisory Board Member</div>
-        <div class="edu-field">PES Business Review · ISSN: 0973-919X · Vol 13, Issue 1 · Jan–Jun 2024 · Indexed: i-Scholar &amp; J-Gate</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">🎓 PhD Supervision</div>
-        <div class="edu-field">3 PhD Scholars enrolled under guidance · Dayananda Sagar University · 2025</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">Journal Reviewer</div>
-        <div class="edu-field">IJRAR · IJCRT · BP International (Cert: PRBPRR/6289NAY &amp; PRBPRR/6393NAY · 2025–26) · Asian Research Journal of Arts &amp; Social Sciences (Cert: PRARJASS153847NAY · Feb 2026) · ERDA (Life Member) · Indian Academy of Research Association (Life Member)</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">🌐 World Research Union — Member</div>
-        <div class="edu-field">Member ID: WRU001382 · Dayananda Sagar University · Valid until May 2027</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-degree">FDP / MDP Programs</div>
-        <div class="edu-field">AI in Education: Redefining Teaching Practices (DSU, Feb 2026) · Time Series Analysis Using EViews (RVIM, Nov 2025) · Teach Smart and Not Hard · NLP in Education · Finance for Non-Finance Executives · Innovative Teaching Methods (KGR, Osmania University, 2024)</div>
-      </div>
+      <div class="edu-card"><div class="edu-degree">Ph.D</div><div class="edu-field">Doctoral Research in Management / Commerce</div></div>
+      <div class="edu-card"><div class="edu-degree">MBA</div><div class="edu-field">Master of Business Administration</div></div>
+      <div class="edu-card"><div class="edu-degree">🏛️ UGC–IIT Patna FDP — Grade A+</div><div class="edu-field">AI Driven MOOC Content Creation, E-Content Development &amp; Research Methodology · Malaviya Mission Teacher Training Programme (MM-TTP) · 04–09 May 2026</div></div>
+      <div class="edu-card"><div class="edu-degree">📗 Book Publication</div><div class="edu-field">Fundamentals of HR Analytics · ISBN: 978-1-956102-84-0 · Iterative International Publisher (IIP) · Bowker Agency, USA</div></div>
+      <div class="edu-card"><div class="edu-degree">🇬🇧 UK Registered Design Patent</div><div class="edu-field">Computing Device for Financial Transaction Authentication · Design No: 6377745 · UK Intellectual Property Office · Filed: 11 July 2024</div></div>
+      <div class="edu-card"><div class="edu-degree">📚 Advisory Board Member</div><div class="edu-field">PES Business Review · ISSN: 0973-919X · Vol 13, Issue 1 · Jan–Jun 2024 · Indexed: i-Scholar &amp; J-Gate</div></div>
+      <div class="edu-card"><div class="edu-degree">🎓 PhD Supervision</div><div class="edu-field">3 PhD Scholars enrolled under guidance · Dayananda Sagar University · 2025</div></div>
+      <div class="edu-card"><div class="edu-degree">Journal Reviewer</div><div class="edu-field">IJRAR · IJCRT · BP International (Cert: PRBPRR/6289NAY &amp; PRBPRR/6393NAY · 2025–26) · Asian Research Journal of Arts &amp; Social Sciences (Cert: PRARJASS153847NAY · Feb 2026) · ERDA (Life Member) · Indian Academy of Research Association (Life Member)</div></div>
+      <div class="edu-card"><div class="edu-degree">🌐 World Research Union — Member</div><div class="edu-field">Member ID: WRU001382 · Dayananda Sagar University · Valid until May 2027</div></div>
+      <div class="edu-card"><div class="edu-degree">FDP / MDP Programs</div><div class="edu-field">AI in Education: Redefining Teaching Practices (DSU, Feb 2026) · Time Series Analysis Using EViews (RVIM, Nov 2025) · Teach Smart and Not Hard · NLP in Education · Finance for Non-Finance Executives · Innovative Teaching Methods (KGR, Osmania University, 2024)</div></div>
     </div>
   </div>
 </section>
@@ -858,7 +506,7 @@
   <p style="font-family:'Playfair Display',serif; font-size:1.1rem; color:rgba(255,255,255,0.7); margin-bottom:0.5rem;">Dr. Nayana N</p>
   <p>Associate Professor &amp; Program Coordinator · DSU Online BBA · Dayananda Sagar University, Bangalore</p>
   <p style="margin-top:0.5rem;"><a href="mailto:drnayanan05@gmail.com">drnayanan05@gmail.com</a> &nbsp;|&nbsp; +91-8553039089 &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/dr-nayana-n-50506940/" target="_blank">LinkedIn ↗</a></p>
-  <p style="margin-top:1.5rem; font-size:0.75rem; color:rgba(255,255,255,0.2);">© 2024 Dr. Nayana N. All rights reserved.</p>
+  <p style="margin-top:1.5rem; font-size:0.75rem; color:rgba(255,255,255,0.2);">© 2025 Dr. Nayana N. All rights reserved.</p>
 </footer>
 
 <script>
